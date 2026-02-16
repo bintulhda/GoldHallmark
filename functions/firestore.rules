@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "huid_codes": {
+      ".read": true,
+      ".write": false
+    },
+    "complaints": {
+      ".read": false,
+      ".write": "request.auth != null",
+      "$uid": {
+        ".read": "root.child('complaints').child($uid).child('userId').val() === auth.uid"
+      }
+    }
+  }
+}

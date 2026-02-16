@@ -1,0 +1,56 @@
+# .gitignore - Gold Guardian
+
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Environment variables (keep secret!)
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Firebase
+.firebaserc
+firebase-debug.log
+.firebase/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+
+# Cache
+.cache/
+.parcel-cache
+
+# Logs
+logs/
+*.log
+lerna-debug.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Package manager locks (optional - can commit if working with team)
+# package-lock.json
+# yarn.lock

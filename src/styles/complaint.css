@@ -1,0 +1,332 @@
+/* ============================================
+   Complaint Page Styles
+   ============================================ */
+
+.complaint-page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.complaint-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.complaint-container h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.complaint-container .subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.success-banner {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideIn 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.complaint-content {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Form Section */
+.complaint-form-section {
+  flex: 1;
+}
+
+.complaint-form {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+}
+
+.complaint-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.complaint-form label {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.complaint-form input,
+.complaint-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-family: inherit;
+}
+
+.complaint-form input::placeholder,
+.complaint-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.complaint-form input:focus,
+.complaint-form textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.char-count {
+  display: block;
+  margin-top: 0.3rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #ffd89b, #19547b);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Complaint Info */
+.complaint-info {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.complaint-info h3 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.complaint-info p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.complaint-info ul {
+  list-style: none;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.complaint-info li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.complaint-info li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: #10b981;
+}
+
+/* Letter Display Section */
+.letter-display-section {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.letter-display-section h2 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.letter-info {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+.letter-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #ffd89b, #19547b);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.letter-content {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.letter-content pre {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+/* Next Steps */
+.next-steps {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.next-steps h3 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.next-steps ol {
+  color: rgba(255, 255, 255, 0.85);
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.next-steps li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.next-steps strong {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .complaint-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .complaint-form {
+    padding: 1.5rem;
+  }
+
+  .letter-actions {
+    flex-direction: column;
+  }
+
+  .btn-action {
+    width: 100%;
+  }
+
+  .letter-content {
+    max-height: 400px;
+  }
+
+  .letter-content pre {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .complaint-container {
+    padding: 0 1rem;
+  }
+
+  .complaint-form {
+    padding: 1.2rem;
+  }
+
+  .letter-display-section {
+    padding: 1.2rem;
+  }
+
+  .form-textarea {
+    min-height: 120px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
