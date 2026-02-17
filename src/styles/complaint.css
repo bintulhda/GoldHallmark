@@ -99,7 +99,7 @@
   background: var(--glass-bg-light);
   border-color: var(--color-gold-main);
   backdrop-filter: var(--glass-blur-md);
-  box-shadow: var(--glow-md), 0 0 0 3px rgba(212, 175, 55, 0.1);
+  box-shadow: var(--glow-md), 0 0 0 3px rgba(217, 169, 69, 0.1);
 }
 
 .form-textarea {

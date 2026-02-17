@@ -27,8 +27,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+  background: radial-gradient(circle at 30% 70%, rgba(217, 169, 69, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(217, 169, 69, 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -40,7 +40,7 @@
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent);
+  background: radial-gradient(circle, rgba(217, 169, 69, 0.08), transparent);
   border-radius: 50%;
   animation: float 8s ease-in-out infinite;
   z-index: 0;
@@ -147,7 +147,7 @@
 .feature-icon {
   font-size: var(--font-size-4xl);
   margin-bottom: var(--spacing-lg);
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+  filter: drop-shadow(0 0 8px rgba(217, 169, 69, 0.3));
 }
 
 .feature-card h3 {
@@ -174,7 +174,7 @@
 
 .feature-link:hover {
   transform: translateX(4px);
-  text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  text-shadow: 0 0 8px rgba(217, 169, 69, 0.3);
 }
 
 /* How It Works Section */
@@ -314,7 +314,7 @@
   padding: var(--spacing-3xl) var(--spacing-xl);
   text-align: center;
   position: relative;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-top: 1px solid rgba(217, 169, 69, 0.2);
 }
 
 .cta h2 {

@@ -36,12 +36,13 @@
 
 /* Form Section */
 .calculator-form {
-  background: rgba(20, 20, 23, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur-lg);
+  border: 1px solid var(--glass-border-light);
   border-radius: var(--radius-xl);
   padding: var(--spacing-2xl);
-  box-shadow: var(--shadow-lg), var(--glow-sm);
+  box-shadow: var(--glass-shadow-md), var(--glow-sm);
+  transition: all var(--transition-base);
 }
 
 .form-section h2 {
@@ -95,7 +96,7 @@
   outline: none;
   background: var(--glass-bg-light);
   border-color: var(--color-gold-main);
-  box-shadow: var(--glow-md), 0 0 0 3px rgba(212, 175, 55, 0.1);
+  box-shadow: var(--glow-md), 0 0 0 3px rgba(217, 169, 69, 0.1);
   backdrop-filter: var(--glass-blur-md);
 }
 
@@ -165,7 +166,7 @@
   width: 100%;
   height: 8px;
   border-radius: 4px;
-  background: rgba(212, 175, 55, 0.2);
+  background: rgba(217, 169, 69, 0.2);
   outline: none;
   -webkit-appearance: none;
   appearance: none;
@@ -213,7 +214,7 @@
 .verdict-card {
   background: rgba(20, 20, 23, 0.8);
   backdrop-filter: blur(20px);
-  border: 2px solid rgba(212, 175, 55, 0.3);
+  border: 2px solid rgba(217, 169, 69, 0.3);
   border-radius: var(--radius-xl);
   padding: var(--spacing-xl);
   box-shadow: var(--shadow-lg), var(--glow-md);
@@ -230,7 +231,7 @@
   font-size: var(--font-size-4xl);
   min-width: 4rem;
   text-align: center;
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+  filter: drop-shadow(0 0 8px rgba(217, 169, 69, 0.3));
 }
 
 .verdict-header h2 {
@@ -249,8 +250,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(217, 169, 69, 0.1);
+  border: 1px solid rgba(217, 169, 69, 0.2);
   padding: var(--spacing-lg);
   border-radius: var(--radius-md);
   color: var(--color-gold-main);
@@ -267,7 +268,7 @@
 .price-breakdown {
   background: rgba(20, 20, 23, 0.8);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(217, 169, 69, 0.2);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-md), var(--glow-sm);
@@ -294,13 +295,13 @@
   padding: var(--spacing-md);
   background: rgba(26, 26, 30, 0.6);
   border-radius: var(--radius-md);
-  border-left: 3px solid rgba(212, 175, 55, 0.3);
+  border-left: 3px solid rgba(217, 169, 69, 0.3);
   transition: all var(--transition-base);
 }
 
 .breakdown-item:hover {
   background: rgba(26, 26, 30, 0.8);
-  border-left-color: rgba(212, 175, 55, 0.6);
+  border-left-color: rgba(217, 169, 69, 0.6);
 }
 
 .breakdown-item.highlight {
@@ -324,7 +325,7 @@
 .comparison-card {
   background: rgba(20, 20, 23, 0.8);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(217, 169, 69, 0.2);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-md), var(--glow-sm);

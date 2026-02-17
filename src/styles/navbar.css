@@ -144,7 +144,7 @@
   }
 
   .navbar-menu li {
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    border-bottom: 1px solid rgba(217, 169, 69, 0.1);
   }
 
   .navbar-menu li a {
@@ -157,7 +157,7 @@
   }
 
   .navbar-menu li a:hover {
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(217, 169, 69, 0.1);
   }
 }
 

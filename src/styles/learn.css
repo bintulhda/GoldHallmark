@@ -58,7 +58,7 @@
   font-size: var(--font-size-4xl);
   margin-bottom: var(--spacing-lg);
   animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+  filter: drop-shadow(0 0 8px rgba(217, 169, 69, 0.3));
 }
 
 .hallmark-card h3 {

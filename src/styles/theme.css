@@ -8,9 +8,9 @@
   /* ---- COLOR PALETTE ---- */
   /* Primary Colors */
   --color-gold-light: #E8D5B7;
-  --color-gold-main: #D4AF37;
-  --color-gold-rich: #AA8C2C;
-  --color-gold-dark: #6B5D28;
+  --color-gold-main: #D9A945;
+  --color-gold-rich: #BF8B1D;
+  --color-gold-dark: #9D6E1B;
 
   /* Background Colors */
   --color-bg-primary: #0f0f12;
@@ -72,9 +72,9 @@
   --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.7);
 
   /* Gold Glow Shadows */
-  --glow-sm: 0 0 8px rgba(212, 175, 55, 0.3);
-  --glow-md: 0 0 16px rgba(212, 175, 55, 0.4);
-  --glow-lg: 0 0 24px rgba(212, 175, 55, 0.5);
+  --glow-sm: 0 0 8px rgba(217, 169, 69, 0.3);
+  --glow-md: 0 0 16px rgba(217, 169, 69, 0.4);
+  --glow-lg: 0 0 24px rgba(217, 169, 69, 0.5);
 
   /* ---- TRANSITIONS ---- */
   --transition-fast: 0.15s ease;
@@ -83,9 +83,9 @@
 
   /* ---- GRADIENTS ---- */
   --gradient-bg: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-  --gradient-gold: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-main) 50%, var(--color-gold-dark) 100%);
+  --gradient-gold: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-main) 50%, var(--color-gold-rich) 100%);
   --gradient-gold-soft: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-main) 100%);
-  --gradient-gold-text: linear-gradient(135deg, #E8D5B7 0%, #D4AF37 50%, #AA8C2C 100%);
+  --gradient-gold-text: linear-gradient(135deg, #E8D5B7 0%, #D9A945 50%, #BF8B1D 100%);
 
   /* ---- GLASSMORPHISM ---- */
   /* Backdrop blur effects for frosted glass appearance */
@@ -96,14 +96,14 @@
 
   /* Glass background colors with transparency */
   --glass-bg-light: rgba(245, 245, 245, 0.08);
-  --glass-bg-medium: rgba(212, 175, 55, 0.08);
+  --glass-bg-medium: rgba(217, 169, 69, 0.08);
   --glass-bg-dark: rgba(20, 20, 23, 0.6);
   --glass-bg-darker: rgba(15, 15, 18, 0.7);
 
   /* Glass border colors for frosted effect */
-  --glass-border-light: rgba(212, 175, 55, 0.2);
-  --glass-border-medium: rgba(212, 175, 55, 0.3);
-  --glass-border-strong: rgba(212, 175, 55, 0.4);
+  --glass-border-light: rgba(217, 169, 69, 0.2);
+  --glass-border-medium: rgba(217, 169, 69, 0.3);
+  --glass-border-strong: rgba(217, 169, 69, 0.4);
 
   /* Glassmorphism shadow (subtle depth) */
   --glass-shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -151,8 +151,8 @@ body::before {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(217, 169, 69, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(217, 169, 69, 0.02) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -205,7 +205,7 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+  text-shadow: 0 0 30px rgba(217, 169, 69, 0.1);
 }
 
 h2 {
@@ -256,7 +256,7 @@ a {
 a:hover {
   color: var(--color-gold-light);
   border-bottom-color: var(--color-gold-light);
-  text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  text-shadow: 0 0 8px rgba(217, 169, 69, 0.3);
 }
 
 small {
@@ -285,7 +285,7 @@ strong {
   text-transform: uppercase;
   border: 2px solid var(--color-gold-main);
   background: transparent;
-  color: var(--color-gold-main);
+  color: var(--color-text-primary);
   border-radius: var(--radius-lg);
   cursor: pointer;
   transition: all var(--transition-base);
@@ -323,16 +323,20 @@ strong {
 /* Button Variants */
 .btn-primary {
   border-color: var(--color-gold-main);
-  color: var(--color-gold-main);
+  color: var(--color-text-primary);
 }
 
 .btn-primary::before {
   background: var(--color-gold-main);
 }
 
+.btn-primary:hover {
+  color: var(--color-bg-primary);
+}
+
 .btn-secondary {
   border-color: var(--color-text-secondary);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
 }
 
 .btn-secondary::before {
@@ -462,7 +466,7 @@ label {
   background: var(--glass-bg-light);
   border-color: var(--color-gold-main);
   backdrop-filter: var(--glass-blur-md);
-  box-shadow: var(--glow-md), 0 0 0 3px rgba(212, 175, 55, 0.1);
+  box-shadow: var(--glow-md), 0 0 0 3px rgba(217, 169, 69, 0.1);
 }
 
 .form-select {
