@@ -1,48 +1,49 @@
 /* ============================================
-   Complaint Page Styles
+   Premium Gold Complaint Page Styles
    ============================================ */
 
 .complaint-page {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-bg);
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: var(--spacing-2xl) 0;
+  position: relative;
 }
 
 .complaint-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--spacing-lg);
 }
 
 .complaint-container h1 {
-  color: white;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 .complaint-container .subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-secondary);
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-2xl);
+  font-size: var(--font-size-lg);
 }
 
 .success-banner {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
-  padding: 1rem 1.5rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--color-success);
+  color: var(--color-success);
+  padding: var(--spacing-lg);
   border-radius: var(--radius-lg);
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-xl);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  animation: slideIn 0.3s ease;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  gap: var(--spacing-md);
+  animation: fadeIn var(--transition-slow);
+  font-weight: var(--font-weight-semibold);
 }
 
 .complaint-content {
   display: flex;
-  gap: 2rem;
+  gap: var(--spacing-xl);
 }
 
 /* Form Section */
@@ -51,51 +52,54 @@
 }
 
 .complaint-form {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur-lg);
+  border: 1px solid var(--glass-border-light);
   border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  margin-bottom: 2rem;
+  padding: var(--spacing-xl);
+  box-shadow: var(--glass-shadow-md), var(--glow-sm);
+  margin-bottom: var(--spacing-xl);
 }
 
 .complaint-form .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg);
 }
 
 .complaint-form label {
-  color: white;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  color: var(--color-gold-main);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
   display: block;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .complaint-form input,
 .complaint-form textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--glass-bg-light);
+  border: 1px solid var(--glass-border-light);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  padding: var(--spacing-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-base);
+  backdrop-filter: var(--glass-blur-sm);
   font-family: inherit;
 }
 
 .complaint-form input::placeholder,
 .complaint-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-tertiary);
 }
 
 .complaint-form input:focus,
 .complaint-form textarea:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  background: var(--glass-bg-light);
+  border-color: var(--color-gold-main);
+  backdrop-filter: var(--glass-blur-md);
+  box-shadow: var(--glow-md), 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
 .form-textarea {
@@ -105,67 +109,73 @@
 
 .char-count {
   display: block;
-  margin-top: 0.3rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
+  margin-top: var(--spacing-xs);
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
   text-align: right;
 }
 
 .btn-submit {
   width: 100%;
-  padding: 1rem;
-  background: linear-gradient(135deg, #ffd89b, #19547b);
-  color: white;
+  padding: var(--spacing-lg);
+  background: var(--color-gold-main);
+  color: var(--color-bg-primary);
   border: none;
   border-radius: var(--radius-md);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--glow-sm);
 }
 
 .btn-submit:hover:not(:disabled) {
+  background: var(--color-gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--glow-lg);
 }
 
 .btn-submit:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 /* Complaint Info */
 .complaint-info {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur-lg);
+  border: 1px solid var(--glass-border-light);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: var(--spacing-lg);
+  box-shadow: var(--glass-shadow-md), var(--glow-sm);
 }
 
 .complaint-info h3 {
-  color: white;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  color: var(--color-gold-main);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  border-bottom: 2px solid var(--color-gold-dark);
+  padding-bottom: var(--spacing-md);
 }
 
 .complaint-info p {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
   line-height: 1.7;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-lg);
 }
 
 .complaint-info ul {
   list-style: none;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text-secondary);
   padding: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg);
 }
 
 .complaint-info li {
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg);
   position: relative;
   line-height: 1.6;
 }
@@ -174,71 +184,75 @@
   content: '✓';
   position: absolute;
   left: 0;
-  font-weight: 700;
-  color: #10b981;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-success);
 }
 
 /* Letter Display Section */
 .letter-display-section {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur-lg);
+  border: 1px solid var(--glass-border-light);
   border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: var(--spacing-xl);
+  box-shadow: var(--glass-shadow-md), var(--glow-sm);
 }
 
 .letter-display-section h2 {
-  color: white;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-md);
 }
 
 .letter-info {
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.5rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-base);
 }
 
 .letter-actions {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
   flex-wrap: wrap;
 }
 
 .btn-action {
   flex: 1;
   min-width: 150px;
-  padding: 0.75rem 1rem;
-  background: linear-gradient(135deg, #ffd89b, #19547b);
-  color: white;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-gold-main);
+  color: var(--color-bg-primary);
   border: none;
   border-radius: var(--radius-md);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
+  transition: all var(--transition-base);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--glow-sm);
 }
 
 .btn-action:hover {
+  background: var(--color-gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--glow-md);
 }
 
 .letter-content {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
   overflow-x: auto;
   max-height: 500px;
   overflow-y: auto;
 }
 
 .letter-content pre {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-secondary);
   font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   line-height: 1.6;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -247,30 +261,32 @@
 
 /* Next Steps */
 .next-steps {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(26, 26, 30, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  padding: var(--spacing-lg);
 }
 
 .next-steps h3 {
-  color: white;
-  margin-bottom: 1rem;
+  color: var(--color-gold-main);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--color-gold-dark);
+  padding-bottom: var(--spacing-md);
 }
 
 .next-steps ol {
-  color: rgba(255, 255, 255, 0.85);
-  padding-left: 1.5rem;
+  color: var(--color-text-secondary);
+  padding-left: var(--spacing-lg);
   margin: 0;
 }
 
 .next-steps li {
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--spacing-md);
   line-height: 1.6;
 }
 
 .next-steps strong {
-  color: white;
+  color: var(--color-gold-main);
 }
 
 /* Responsive */
@@ -282,7 +298,7 @@
 
 @media (max-width: 768px) {
   .complaint-form {
-    padding: 1.5rem;
+    padding: var(--spacing-lg);
   }
 
   .letter-actions {
@@ -298,35 +314,24 @@
   }
 
   .letter-content pre {
-    font-size: 0.85rem;
+    font-size: var(--font-size-xs);
   }
 }
 
 @media (max-width: 480px) {
   .complaint-container {
-    padding: 0 1rem;
+    padding: 0 var(--spacing-md);
   }
 
   .complaint-form {
-    padding: 1.2rem;
+    padding: var(--spacing-lg);
   }
 
   .letter-display-section {
-    padding: 1.2rem;
+    padding: var(--spacing-lg);
   }
 
   .form-textarea {
     min-height: 120px;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
