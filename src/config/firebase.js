@@ -3,17 +3,22 @@ import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 import { getFunctions, httpsCallable } from 'firebase/functions'
 
+import { getAnalytics } from "firebase/analytics";
+
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-}
+  apiKey: "AIzaSyDPCcgpWmkPOfumJ9H3EzbUJiOVff7fCWU",
+  authDomain: "goldguardian-c8002.firebaseapp.com",
+  projectId: "goldguardian-c8002",
+  storageBucket: "goldguardian-c8002.firebasestorage.app",
+  messagingSenderId: "428410467799",
+  appId: "1:428410467799:web:49f685e5a62acf24208792",
+  measurementId: "G-Q22WBQTD4L"
+};
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 
 // Initialize Auth with persistence
 export const auth = getAuth(app)
