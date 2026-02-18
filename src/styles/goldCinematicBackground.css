@@ -1,0 +1,498 @@
+/* ============================================
+   Cinematic Gold Background Animations
+   ============================================ */
+
+.cinematic-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
+   LAYER 1: GLOW DEPTH
+   ============================================ */
+
+.cinematic-glow-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.glow-primary {
+  top: 20%;
+  right: 15%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(217, 169, 69, 0.15) 0%, transparent 70%);
+  animation: breathing-glow 8s ease-in-out infinite;
+}
+
+.glow-secondary {
+  bottom: 15%;
+  left: 10%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(217, 169, 69, 0.12) 0%, transparent 70%);
+  animation: breathing-glow 10s ease-in-out 2s infinite;
+}
+
+/* ============================================
+   LAYER 2: FLOATING GOLD BARS
+   ============================================ */
+
+.cinematic-bars-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transition: transform 0.15s ease-out;
+}
+
+.floating-bars-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: float-vertical 16s ease-in-out infinite;
+}
+
+/* ============================================
+   LAYER 3: ROTATING GOLD RING
+   ============================================ */
+
+.cinematic-ring-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transition: transform 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotating-ring-svg {
+  width: 500px;
+  height: 500px;
+  animation: rotate-ring 45s linear infinite;
+}
+
+/* ============================================
+   VIGNETTE EFFECT
+   ============================================ */
+
+.cinematic-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(15, 15, 18, 0.15) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes breathing-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes float-vertical {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+  75% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate-ring {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   HOVER STATE
+   ============================================ */
+
+.cinematic-bg-container.hovering .cinematic-glow-layer,
+.cinematic-bg-container.hovering .cinematic-bars-layer,
+.cinematic-bg-container.hovering .cinematic-ring-layer {
+  transition: transform 0.08s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .glow-primary {
+    width: 250px;
+    height: 250px;
+  }
+
+  .glow-secondary {
+    width: 280px;
+    height: 280px;
+  }
+
+  .rotating-ring-svg {
+    width: 400px;
+    height: 400px;
+  }
+
+  .floating-bars-svg {
+    animation: float-vertical 18s ease-in-out infinite;
+  }
+}
+
+@media (max-width: 768px) {
+  .glow-primary {
+    width: 200px;
+    height: 200px;
+    opacity: 0.7;
+  }
+
+  .glow-secondary {
+    width: 220px;
+    height: 220px;
+    opacity: 0.7;
+  }
+
+  .glow-orb {
+    filter: blur(50px);
+  }
+
+  .rotating-ring-svg {
+    width: 300px;
+    height: 300px;
+  }
+
+  .floating-bars-svg {
+    animation: float-vertical 20s ease-in-out infinite;
+  }
+
+  .cinematic-vignette {
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(15, 15, 18, 0.25) 100%);
+  }
+
+  .falling-coin {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .floating-element {
+    width: 80px;
+    height: 80px;
+  }
+
+  .floating-bars-element,
+  .floating-shield-element,
+  .floating-jewel-element {
+    animation-duration: calc(var(--duration) * 1.2);
+  }
+}
+
+@media (max-width: 480px) {
+  .glow-primary {
+    width: 150px;
+    height: 150px;
+    right: 5%;
+    top: 15%;
+    opacity: 0.5;
+  }
+
+  .glow-secondary {
+    width: 180px;
+    height: 180px;
+    left: 5%;
+    bottom: 10%;
+    opacity: 0.5;
+  }
+
+  .glow-orb {
+    filter: blur(40px);
+  }
+
+  .rotating-ring-svg {
+    width: 200px;
+    height: 200px;
+    opacity: 0.8;
+  }
+
+  .floating-bars-svg {
+    animation: float-vertical 22s ease-in-out infinite;
+    opacity: 0.7;
+  }
+
+  .cinematic-vignette {
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(15, 15, 18, 0.35) 100%);
+  }
+
+  /* Reduce parallax intensity on mobile */
+  .cinematic-bg-container {
+    pointer-events: auto;
+  }
+
+  .falling-coin {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .falling-coin:nth-child(n + 5) {
+    display: none;
+  }
+
+  .floating-element {
+    width: 70px;
+    height: 70px;
+  }
+
+  .floating-shield-element,
+  .floating-jewel-element {
+    display: none;
+  }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Smooth GPU acceleration */
+.cinematic-glow-layer,
+.cinematic-bars-layer,
+.cinematic-ring-layer,
+.coins-container,
+.floating-elements-layer {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+@supports (animation-timeline: scroll()) {
+  .floating-bars-svg,
+  .rotating-ring-svg {
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ============================================
+   FALLING COINS
+   ============================================ */
+
+.coins-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.falling-coin {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -50px;
+  animation: fall 18s linear infinite;
+}
+
+.falling-coin svg {
+  width: 100%;
+  height: 100%;
+  animation: spin-coin 3s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(217, 169, 69, 0.15));
+}
+
+.falling-coin:nth-child(1) {
+  animation-duration: 18s;
+  animation-delay: 0s;
+  width: 32px;
+  height: 32px;
+}
+
+.falling-coin:nth-child(2) {
+  animation-duration: 20s;
+  animation-delay: 2s;
+  width: 44px;
+  height: 44px;
+}
+
+.falling-coin:nth-child(3) {
+  animation-duration: 19s;
+  animation-delay: 4s;
+  width: 36px;
+  height: 36px;
+}
+
+.falling-coin:nth-child(4) {
+  animation-duration: 21s;
+  animation-delay: 6s;
+  width: 40px;
+  height: 40px;
+}
+
+.falling-coin:nth-child(5) {
+  animation-duration: 18.5s;
+  animation-delay: 8s;
+  width: 38px;
+  height: 38px;
+}
+
+.falling-coin:nth-child(6) {
+  animation-duration: 20.5s;
+  animation-delay: 10s;
+  width: 42px;
+  height: 42px;
+}
+
+.falling-coin:nth-child(7) {
+  animation-duration: 19.5s;
+  animation-delay: 12s;
+  width: 35px;
+  height: 35px;
+}
+
+.falling-coin:nth-child(8) {
+  animation-duration: 22s;
+  animation-delay: 14s;
+  width: 40px;
+  height: 40px;
+}
+
+/* ============================================
+   FLOATING ELEMENTS
+   ============================================ */
+
+.floating-elements-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floating-element {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  animation: float-in 0.8s ease-out forwards;
+}
+
+.floating-element svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(217, 169, 69, 0.1));
+}
+
+.floating-bars-element {
+  top: 5%;
+  right: 8%;
+  animation: float-in 0.8s ease-out forwards, drift-right 16s ease-in-out 0.8s infinite;
+  width: 100px;
+  height: 100px;
+}
+
+.floating-shield-element {
+  bottom: 15%;
+  left: 8%;
+  animation: float-in 1.2s ease-out forwards, drift-up 22s ease-in-out 1.2s infinite;
+}
+
+.floating-jewel-element {
+  top: 50%;
+  right: 5%;
+  animation: float-in 0.9s ease-out forwards, drift-right 20s ease-in-out 0.9s infinite;
+}
+
+@keyframes fall {
+  0% {
+    top: -50px;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+@keyframes spin-coin {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(180deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift-right {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(30px) translateY(-15px);
+  }
+}
+
+@keyframes drift-up {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-25px) translateX(15px);
+  }
+}

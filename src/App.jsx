@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider } from './contexts/AuthContext'
 import { PrivateRoute } from './contexts/PrivateRoute'
 import Navbar from './components/Navbar'
+import GoldCinematicBackground from './components/GoldCinematicBackground'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
@@ -23,6 +24,9 @@ function App() {
     <Router>
       <AuthProvider>
         <div className="app-container">
+          {/* Cinematic Gold Background with Parallax */}
+          <GoldCinematicBackground />
+
           {/* Navigation Bar - persistent across all pages */}
           <Navbar />
 
