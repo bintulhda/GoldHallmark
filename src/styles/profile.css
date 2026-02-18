@@ -1,0 +1,234 @@
+/* Profile Page Styles */
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+.profile-card {
+  background: rgba(15, 15, 18, 0.85);
+  border: 1px solid rgba(217, 169, 69, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(32px);
+  width: 100%;
+  max-width: 600px;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 32px rgba(217, 169, 69, 0.15);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, #D9A945 0%, #2d2415 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(217, 169, 69, 0.3);
+  border: 2px solid rgba(217, 169, 69, 0.4);
+}
+
+.avatar-initials {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f0f12;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+}
+
+.profile-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #D9A945, #b8860b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #D9A945;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(217, 169, 69, 0.2);
+}
+
+.profile-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-item label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(217, 169, 69, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.profile-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  background: rgba(217, 169, 69, 0.05);
+  border-left: 3px solid rgba(217, 169, 69, 0.3);
+  border-radius: 4px;
+  word-break: break-all;
+}
+
+.profile-value.verified {
+  color: #4ade80;
+  border-left-color: #4ade80;
+  background: rgba(74, 222, 128, 0.05);
+}
+
+.profile-value.unverified {
+  color: #f87171;
+  border-left-color: #f87171;
+  background: rgba(248, 113, 113, 0.05);
+}
+
+.profile-uid {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.profile-logout-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  color: white;
+  border: 1px solid rgba(211, 47, 47, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.2);
+}
+
+.profile-logout-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(211, 47, 47, 0.35);
+}
+
+.profile-logout-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.profile-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(217, 169, 69, 0.1);
+  font-size: 0.9rem;
+  color: rgba(217, 169, 69, 0.6);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .profile-title {
+    font-size: 2rem;
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .avatar-initials {
+    font-size: 2rem;
+  }
+
+  .profile-section h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .profile-container {
+    min-height: 60vh;
+    padding: 1rem 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .profile-card {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+
+  .profile-title {
+    font-size: 1.5rem;
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+  }
+
+  .avatar-initials {
+    font-size: 1.5rem;
+  }
+
+  .profile-value {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .profile-logout-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

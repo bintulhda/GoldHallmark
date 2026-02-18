@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from 'firebase/auth'
 
 export const AuthContext = createContext(null)
@@ -24,10 +25,14 @@ export function AuthProvider({ children }) {
   }, [])
 
   // Signup
-  const signup = useCallback(async (email, password) => {
+  const signup = useCallback(async (email, password, name) => {
     try {
       setError(null)
       const result = await createUserWithEmailAndPassword(auth, email, password)
+      // Update user profile with display name
+      if (name) {
+        await updateProfile(result.user, { displayName: name })
+      }
       return result.user
     } catch (err) {
       const message = getErrorMessage(err.code)

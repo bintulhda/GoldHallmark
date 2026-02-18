@@ -11,6 +11,7 @@ import Calculator from './pages/Calculator'
 import VerifyHUID from './pages/VerifyHUID'
 import Learn from './pages/Learn'
 import Complaint from './pages/Complaint'
+import Profile from './pages/Profile'
 import './styles/global.css'
 
 /**
@@ -68,6 +69,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <Complaint />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <PrivateRoute>
+                    <Profile />
                   </PrivateRoute>
                 }
               />

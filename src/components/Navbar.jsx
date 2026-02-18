@@ -87,7 +87,12 @@ function Navbar() {
           {isAuthenticated ? (
             <>
               <li className="navbar-user">
-                <span className="user-email">{user?.email}</span>
+                <span className="user-email">{user?.displayName || user?.email}</span>
+              </li>
+              <li>
+                <Link to="/profile" className="navbar-profile" onClick={handleMenuClose}>
+                  👤 Profile
+                </Link>
               </li>
               <li>
                 <button onClick={handleLogout} className="navbar-logout">

@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext'
 import '../styles/auth.css'
 
 export default function Signup() {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -27,6 +28,14 @@ export default function Signup() {
     setError('')
 
     // Validation
+    if (!name.trim()) {
+      setError('Name is required')
+      return
+    }
+    if (name.trim().length < 2) {
+      setError('Name must be at least 2 characters')
+      return
+    }
     if (!email.trim()) {
       setError('Email is required')
       return
@@ -50,8 +59,8 @@ export default function Signup() {
 
     try {
       setLoading(true)
-      await signup(email, password)
-      navigate('/dashboard')
+      await signup(email, password, name)
+      navigate('/profile')
     } catch (err) {
       setError(err.message || 'Failed to create account')
       setLoading(false)
@@ -69,6 +78,19 @@ export default function Signup() {
         {error && <div className="auth-error">{error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-group">
+            <label htmlFor="name">Full Name</label>
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="John Doe"
+              className="form-input"
+              disabled={loading}
+            />
+          </div>
+
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
