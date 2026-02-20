@@ -11,6 +11,7 @@
     "firebase:deploy": "firebase deploy",
     "firebase:emulate": "firebase emulators:start",
     "backend": "node ./backend/server.js",
+    "start": "node ./backend/server.js",
     "dev:all": "concurrently \"npm run backend\" \"npm run dev\""
   },
   "dependencies": {

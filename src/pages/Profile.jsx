@@ -4,9 +4,13 @@ import { useAuth } from '../contexts/AuthContext'
 import '../styles/profile.css'
 
 export default function Profile() {
-  const { user, logout } = useAuth()
+  const { user, logout, updateUserProfile } = useAuth()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
+  const [isEditMode, setIsEditMode] = useState(false)
+  const [editName, setEditName] = useState(user?.displayName || '')
+  const [editError, setEditError] = useState('')
+  const [editLoading, setEditLoading] = useState(false)
 
   const handleLogout = async () => {
     try {
@@ -16,6 +20,37 @@ export default function Profile() {
     } catch (error) {
       console.error('Logout failed:', error)
       setLoading(false)
+    }
+  }
+
+  const handleEditClick = () => {
+    setEditName(user?.displayName || '')
+    setEditError('')
+    setIsEditMode(true)
+  }
+
+  const handleCancel = () => {
+    setEditName(user?.displayName || '')
+    setEditError('')
+    setIsEditMode(false)
+  }
+
+  const handleSave = async () => {
+    if (!editName.trim()) {
+      setEditError('Name cannot be empty')
+      return
+    }
+
+    try {
+      setEditLoading(true)
+      setEditError('')
+      await updateUserProfile(editName)
+      setIsEditMode(false)
+    } catch (error) {
+      console.error('Update failed:', error)
+      setEditError(error.message || 'Failed to update profile')
+    } finally {
+      setEditLoading(false)
     }
   }
 
@@ -43,9 +78,19 @@ export default function Profile() {
 
             <div className="profile-item">
               <label>Full Name</label>
-              <div className="profile-value">
-                {user?.displayName || 'Not set'}
-              </div>
+              {isEditMode ? (
+                <input
+                  type="text"
+                  className="profile-edit-input"
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
+                  placeholder="Enter your name"
+                />
+              ) : (
+                <div className="profile-value">
+                  {user?.displayName || 'Not set'}
+                </div>
+              )}
             </div>
 
             <div className="profile-item">
@@ -81,14 +126,47 @@ export default function Profile() {
                 {user?.emailVerified ? '✓ Verified' : '✗ Not Verified'}
               </div>
             </div>
+
+            {isEditMode && editError && (
+              <div className="profile-error-message">
+                {editError}
+              </div>
+            )}
           </div>
 
           <div className="profile-section">
             <h2>Account Actions</h2>
 
-            <button onClick={handleLogout} className="profile-logout-btn" disabled={loading}>
-              {loading ? 'Logging out...' : 'Logout'}
-            </button>
+            {isEditMode ? (
+              <div className="profile-edit-actions">
+                <button
+                  onClick={handleSave}
+                  className="profile-save-btn"
+                  disabled={editLoading}
+                >
+                  {editLoading ? 'Saving...' : 'Save Changes'}
+                </button>
+                <button
+                  onClick={handleCancel}
+                  className="profile-cancel-btn"
+                  disabled={editLoading}
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={handleEditClick}
+                  className="profile-edit-btn"
+                >
+                  Edit Profile
+                </button>
+                <button onClick={handleLogout} className="profile-logout-btn" disabled={loading}>
+                  {loading ? 'Logging out...' : 'Logout'}
+                </button>
+              </>
+            )}
           </div>
         </div>
 

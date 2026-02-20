@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { verifyHUID } from '../utils/firestore'
+import { verifyHuidViaApi } from '../utils/api'
 import '../styles/verify.css'
 
 /**
@@ -25,7 +25,17 @@ function VerifyHUID() {
 
     setIsLoading(true)
     try {
-      const verificationResult = await verifyHUID(huidCode)
+      const apiResult = await verifyHuidViaApi(huidCode)
+      
+      // Transform API response to match UI expectations
+      const verificationResult = {
+        isValid: apiResult.success,
+        message: apiResult.success ? '✅ Verified BIS Hallmark' : '❌ Invalid or Fake Jewellery',
+        shop: apiResult.jewelerName || 'Unknown',
+        city: apiResult.location || 'Unknown',
+        purity: apiResult.goldPurity,
+        status: apiResult.certificationStatus,
+      }
       setResult(verificationResult)
 
       // Add to search history
@@ -34,7 +44,7 @@ function VerifyHUID() {
       console.error('Verification error:', error)
       setResult({
         isValid: false,
-        message: 'Error connecting to database.',
+        message: 'Error connecting to database. Please try again.',
       })
     } finally {
       setIsLoading(false)
@@ -48,8 +58,23 @@ function VerifyHUID() {
     setHuidCode(code)
     setIsLoading(true)
     try {
-      const verificationResult = await verifyHUID(code)
+      const apiResult = await verifyHuidViaApi(code)
+      
+      const verificationResult = {
+        isValid: apiResult.success,
+        message: apiResult.success ? '✅ Verified BIS Hallmark' : '❌ Invalid or Fake Jewellery',
+        shop: apiResult.jewelerName || 'Unknown',
+        city: apiResult.location || 'Unknown',
+        purity: apiResult.goldPurity,
+        status: apiResult.certificationStatus,
+      }
       setResult(verificationResult)
+    } catch (error) {
+      console.error('History verification error:', error)
+      setResult({
+        isValid: false,
+        message: 'Error connecting to database. Please try again.',
+      })
     } finally {
       setIsLoading(false)
     }
@@ -107,6 +132,18 @@ function VerifyHUID() {
                   <span className="label">Location:</span>
                   <span className="value">{result.city}</span>
                 </div>
+                {result.purity && (
+                  <div className="detail-item">
+                    <span className="label">Gold Purity:</span>
+                    <span className="value">{result.purity}</span>
+                  </div>
+                )}
+                {result.status && (
+                  <div className="detail-item">
+                    <span className="label">Certification Status:</span>
+                    <span className="value">{result.status}</span>
+                  </div>
+                )}
                 <p className="success-message">
                   ✅ This hallmark is registered with BIS. The jewellery is
                   authentic.

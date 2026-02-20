@@ -65,6 +65,21 @@ export function AuthProvider({ children }) {
     }
   }, [])
 
+  // Update Profile
+  const updateUserProfile = useCallback(async (displayName) => {
+    try {
+      setError(null)
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, { displayName })
+        setUser({ ...auth.currentUser, displayName })
+      }
+    } catch (err) {
+      const message = getErrorMessage(err.code)
+      setError(message)
+      throw new Error(message)
+    }
+  }, [])
+
   const value = {
     user,
     loading,
@@ -72,6 +87,7 @@ export function AuthProvider({ children }) {
     signup,
     login,
     logout,
+    updateUserProfile,
     isAuthenticated: !!user,
   }
 
