@@ -51,3 +51,15 @@ export async function unsubscribeAlertsApi(phone) {
   return res.json();
 }
 
+export async function saveComplaintApi(complaintData) {
+  const res = await fetch(`${API_BASE}/api/complaints`, {
+    method: 'POST',
+    headers: jsonHeaders,
+    body: JSON.stringify(complaintData),
+  });
+  if (!res.ok) {
+    throw new Error('Failed to save complaint');
+  }
+  return res.json();
+}
+

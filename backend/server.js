@@ -8,6 +8,7 @@ import dotenv from 'dotenv';
 import whatsappRouter from './routes/whatsappRoutes.js';
 import huidRouter from './routes/huidRoutes.js';
 import priceRouter from './routes/priceRoutes.js';
+import complaintRouter from './routes/complaintRoutes.js';
 
 dotenv.config();
 
@@ -41,6 +42,7 @@ app.get('/health', (req, res) => {
 app.use('/api/whatsapp', whatsappRouter);
 app.use('/api', huidRouter);
 app.use('/api', priceRouter);
+app.use('/api', complaintRouter);
 
 // Not found handler
 app.use((req, res) => {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { saveComplaint, generateComplaintLetter } from '../utils/firestore'
+import { saveComplaintApi } from '../utils/api'
+import { generateComplaintLetter } from '../utils/firestore'
 import '../styles/complaint.css'
 
 /**
@@ -50,15 +51,22 @@ function Complaint() {
     setIsSubmitting(true)
 
     try {
-      // Save to Firestore
-      const complaintId = await saveComplaint(formData)
+      // Save to backend API
+      const response = await saveComplaintApi({
+        customerName: formData.customerName,
+        shopName: formData.shopName,
+        city: formData.city,
+        issueDescription: formData.issueDescription,
+      })
 
       // Generate complaint letter
       const letter = generateComplaintLetter(formData)
       setComplaintLetter(letter)
 
       // Show success message
-      setSuccessMessage(`Complaint saved successfully! ID: ${complaintId}`)
+      setSuccessMessage(
+        `Complaint saved successfully! ID: ${response.complaintId}`,
+      )
 
       // Reset form
       setFormData({
