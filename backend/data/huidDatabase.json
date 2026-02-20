@@ -1,0 +1,31 @@
+{
+  "AB1234": {
+    "goldPurity": "22K",
+    "certificationStatus": "Certified",
+    "jewelerName": "Gold Palace Jewellers",
+    "location": "Mumbai, Maharashtra",
+    "lastVerifiedAt": "2026-02-01T10:00:00.000Z"
+  },
+  "XY5678": {
+    "goldPurity": "24K",
+    "certificationStatus": "Certified",
+    "jewelerName": "Royal Jewellers",
+    "location": "Delhi, Delhi",
+    "lastVerifiedAt": "2026-02-05T12:30:00.000Z"
+  },
+  "JK9012": {
+    "goldPurity": "18K",
+    "certificationStatus": "Certified",
+    "jewelerName": "Vijaya Jewellers",
+    "location": "Bangalore, Karnataka",
+    "lastVerifiedAt": "2026-02-10T16:45:00.000Z"
+  },
+  "INVALID1": {
+    "goldPurity": null,
+    "certificationStatus": "Flagged / Invalid",
+    "jewelerName": "Unknown",
+    "location": "Unknown",
+    "lastVerifiedAt": "2026-02-15T09:15:00.000Z"
+  }
+}
+

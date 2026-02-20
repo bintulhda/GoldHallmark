@@ -4,6 +4,8 @@ import { AuthProvider } from './contexts/AuthContext'
 import { PrivateRoute } from './contexts/PrivateRoute'
 import Navbar from './components/Navbar'
 import GoldCinematicBackground from './components/GoldCinematicBackground'
+import GoldCoinRain from './components/GoldCoinRain'
+import SideGoldCoinRain from './components/SideGoldCoinRain'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
@@ -25,6 +27,10 @@ function App() {
     <Router>
       <AuthProvider>
         <div className="app-container">
+          {/* Falling gold coins - background layer */}
+          <GoldCoinRain />
+          {/* Side gold coin waterfall - right strip only, behind content */}
+          <SideGoldCoinRain />
           {/* Cinematic Gold Background with Parallax */}
           <GoldCinematicBackground />
 

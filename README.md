@@ -1,4 +1,4 @@
-# 🏆 Gold Guardian - BIS Consumer Protection Platform
+# 🛡️ Gold Guardian - BIS Consumer Protection Platform
 
 A complete, production-ready hackathon web application for consumer protection in India. **Gold Guardian** helps Indian consumers avoid fraud while buying gold jewellery by verifying BIS Hallmarks, calculating fair prices, and generating official complaints.
 
@@ -21,6 +21,11 @@ A complete, production-ready hackathon web application for consumer protection i
 - Check if jewellery is authentic or fake
 - View shop details and certified location
 - Search history for quick reference
+
+### 2.1 📱 **Phase 1: WhatsApp Bot**
+- Verify HUID directly over WhatsApp chat
+- Get instant gold price and simple fraud guidance
+- Subscribe/unsubscribe to gold price alerts
 
 ### 3. 📚 **Hallmark Education**
 - Learn about BIS hallmark components
@@ -70,6 +75,12 @@ gold-guardian/
 │   │   └── complaint.css              # Complaint page styles
 │   ├── App.jsx                        # Main app component
 │   └── main.jsx                       # Entry point
+├── backend/                           # Express backend for WhatsApp bot + REST APIs
+│   ├── controllers/                   # Route controllers (WhatsApp, HUID, price, alerts)
+│   ├── routes/                        # Express route definitions
+│   ├── services/                      # Business logic + integrations
+│   ├── data/                          # Mock HUID database
+│   └── server.js                      # Express app entry
 ├── functions/
 │   ├── index.js                       # Cloud Functions
 │   └── package.json                   # Functions dependencies
@@ -186,13 +197,29 @@ db.collection('huid_codes').doc('AB1234').set({code: 'AB1234', valid: true, shop
 
 ## 📖 How to Run
 
-### Development Mode
+### Development Mode (Frontend only)
 
 ```bash
-# Start development server
+# Start frontend development server
 npm run dev
 
 # App will open at http://localhost:5173
+```
+
+### Development Mode (Frontend + WhatsApp Backend)
+
+```bash
+# Install dependencies
+npm install
+
+# Copy backend env template (optional)
+cp .env.example.backend .env
+
+# Start both frontend and backend together
+npm run dev:all
+
+# Frontend: http://localhost:5173
+# Backend:  http://localhost:4000
 ```
 
 ### Production Build
@@ -382,7 +409,7 @@ npm run dev
 - [ ] SMS alerts for price thresholds
 - [ ] User accounts and complaint history
 - [ ] Integration with BIS official database
-- [ ] WhatsApp bot for verification
+- [x] WhatsApp bot for verification
 - [ ] Multi-language support (Hindi, Tamil, etc.)
 - [ ] Offline mode support
 - [ ] Analytics dashboard
@@ -408,7 +435,7 @@ This project is open-source and available for educational and hackathon purposes
 
 ## 👨‍💻 Development by
 
-**Gold Guardian Team** - Building consumer protection one hallmark at a time! 🏆
+**Gold Guardian Team** - Building consumer protection one hallmark at a time! 🛡️
 
 ---
 
@@ -449,4 +476,52 @@ service cloud.firestore {
 **Version**: 1.0.0  
 **Last Updated**: February 2026  
 **Status**: Production Ready ✅
+
+---
+
+## 🤖 WhatsApp Bot (Phase 1)
+
+### Commands
+
+- `VERIFY <HUID>`: Verify a hallmark code using mock BIS-style data
+- `PRICE`: Get today&apos;s gold price per gram (INR)
+- `ALERT ON`: Subscribe this WhatsApp number to gold price alerts (mock, in-memory)
+- `ALERT OFF`: Unsubscribe from price alerts
+- `HELP`: Show available commands
+
+If the message is just an 6–10 character alphanumeric string (like `AB1234`), the bot will treat it as a HUID and try to verify it.
+
+### Backend REST APIs
+
+- `POST /api/verify-huid`
+  - Body: `{ "huid": "AB1234" }`
+  - Returns: `goldPurity`, `certificationStatus`, `jewelerName`, `location`, `message`, `success`
+- `GET /api/gold-price`
+  - Returns: current gold rate per gram in INR with source and timestamp
+- `POST /api/alerts/subscribe`
+  - Body: `{ "phone": "whatsapp-number" }`
+  - Returns: subscription status and message
+- `POST /api/alerts/unsubscribe`
+  - Body: `{ "phone": "whatsapp-number" }`
+  - Returns: subscription status and message
+
+### Backend Environment Variables
+
+Backend env template: `.env.example.backend`
+
+```env
+PORT=4000
+ALLOWED_ORIGINS=http://localhost:5173
+
+# WhatsApp / Twilio (optional - leave blank to use mock service)
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_WHATSAPP_NUMBER=
+
+# Gold price API (optional)
+GOLD_PRICE_API=https://api.metals.live/v1/spot/gold
+USD_INR_RATE=83
+```
+
+If the Twilio variables are not set, the backend will run in **mock mode** and simply log outgoing WhatsApp messages to the console.
 

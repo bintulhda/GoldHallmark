@@ -1,0 +1,187 @@
+/* ============================================
+   Side Gold Coin Rain - Content-Safe Right Strip
+   Hero right 35–40%, 3D coins, gravity, lower-right density
+   ============================================ */
+
+.side-gold-coin-rain {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 38vw;
+  min-width: 140px;
+  max-width: 40vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(10, 10, 12, 0.4) 35%,
+    rgba(8, 8, 10, 0.75) 70%,
+    rgba(5, 5, 7, 0.92) 100%
+  );
+}
+
+.side-gold-coin-rain__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      ellipse 80% 60% at 85% 60%,
+      rgba(212, 175, 55, 0.08) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.03) 70%,
+      rgba(201, 162, 39, 0.06) 100%
+    );
+}
+
+.side-gold-coin-rain__strip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  perspective: 1400px;
+}
+
+.side-gold-coin {
+  position: absolute;
+  left: var(--coin-left);
+  top: -80px;
+  width: var(--coin-size);
+  height: var(--coin-size);
+  margin-left: calc(var(--coin-size) * -0.5);
+  animation: side-coin-fall var(--coin-duration) cubic-bezier(0.32, 0.72, 0, 1) var(--coin-delay) infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.side-gold-coin__face {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+      circle at 28% 28%,
+      #f8e08a 0%,
+      #f5d76e 12%,
+      rgba(245, 215, 110, 0.9) 25%,
+      #d4af37 50%,
+      #c9a227 78%,
+      rgba(184, 145, 35, 0.95) 100%
+    ),
+    radial-gradient(
+      circle at 68% 68%,
+      rgba(201, 162, 39, 0.5) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.1) 18%,
+      transparent 35%
+    );
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  box-shadow:
+    inset 0 -4px 8px rgba(0, 0, 0, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.25),
+    inset 0 0 20px rgba(245, 215, 110, 0.08),
+    0 0 0 1px rgba(212, 175, 55, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(212, 175, 55, 0.12);
+}
+
+@keyframes side-coin-fall {
+  0% {
+    transform: translateZ(0) translateY(0) translateX(0) rotate(0deg) rotateY(var(--coin-tilt));
+    opacity: 0;
+  }
+  3% {
+    transform: translateZ(0) translateY(0) translateX(0) rotate(0deg) rotateY(var(--coin-tilt));
+    opacity: 0.88;
+  }
+  10% {
+    transform: translateZ(0) translateY(10vh) translateX(calc(var(--coin-drift) * 0.1)) rotate(calc(var(--coin-rotation) * 0.1)) rotateY(var(--coin-tilt));
+    opacity: 0.9;
+  }
+  45% {
+    transform: translateZ(0) translateY(48vh) translateX(calc(var(--coin-drift) * 0.45)) rotate(calc(var(--coin-rotation) * 0.45)) rotateY(var(--coin-tilt));
+    opacity: 0.92;
+  }
+  90% {
+    transform: translateZ(0) translateY(100vh) translateX(var(--coin-drift)) rotate(var(--coin-rotation)) rotateY(var(--coin-tilt));
+    opacity: 0.92;
+  }
+  96% {
+    transform: translateZ(0) translateY(112vh) translateX(var(--coin-drift)) rotate(var(--coin-rotation)) rotateY(var(--coin-tilt));
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateZ(0) translateY(118vh) translateX(var(--coin-drift)) rotate(var(--coin-rotation)) rotateY(var(--coin-tilt));
+    opacity: 0;
+  }
+}
+
+/* Accumulated pile - bottom-right */
+.side-gold-coin-rain__pile {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 160px;
+  height: 120px;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.5));
+}
+
+.side-gold-coin-rain__pile-coin {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+      circle at 30% 30%,
+      #f5d76e 0%,
+      #d4af37 45%,
+      #c9a227 80%,
+      rgba(184, 145, 35, 0.95) 100%
+    ),
+    radial-gradient(circle at 22% 22%, rgba(255, 255, 255, 0.35) 0%, transparent 30%);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  box-shadow:
+    inset 0 -2px 4px rgba(0, 0, 0, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.side-gold-coin-rain__pile-coin--1 { width: 36px; height: 36px; right: 12px;  bottom: 8px;  z-index: 1; }
+.side-gold-coin-rain__pile-coin--2 { width: 42px; height: 42px; right: 38px;  bottom: 4px;  z-index: 2; }
+.side-gold-coin-rain__pile-coin--3 { width: 32px; height: 32px; right: 72px;  bottom: 18px; z-index: 3; }
+.side-gold-coin-rain__pile-coin--4 { width: 28px; height: 28px; right: 52px;  bottom: 28px; z-index: 4; }
+.side-gold-coin-rain__pile-coin--5 { width: 38px; height: 38px; right: 18px;  bottom: 32px; z-index: 5; }
+.side-gold-coin-rain__pile-coin--6 { width: 26px; height: 26px; right: 88px;  bottom: 12px; z-index: 6; }
+.side-gold-coin-rain__pile-coin--7 { width: 30px; height: 30px; right: 58px;  bottom: 42px; z-index: 7; }
+
+@media (max-width: 768px) {
+  .side-gold-coin-rain {
+    width: 28vw;
+    min-width: 100px;
+  }
+  .side-gold-coin-rain__pile {
+    width: 100px;
+    height: 80px;
+  }
+  .side-gold-coin-rain__pile-coin--1 { width: 22px; height: 22px; right: 6px;  bottom: 4px; }
+  .side-gold-coin-rain__pile-coin--2 { width: 26px; height: 26px; right: 22px; bottom: 2px; }
+  .side-gold-coin-rain__pile-coin--3 { width: 20px; height: 20px; right: 42px; bottom: 10px; }
+  .side-gold-coin-rain__pile-coin--4 { width: 18px; height: 18px; right: 30px; bottom: 16px; }
+  .side-gold-coin-rain__pile-coin--5 { width: 24px; height: 24px; right: 10px; bottom: 18px; }
+  .side-gold-coin-rain__pile-coin--6 { width: 16px; height: 16px; right: 52px; bottom: 6px; }
+  .side-gold-coin-rain__pile-coin--7 { width: 18px; height: 18px; right: 34px; bottom: 24px; }
+}
+
+@media (max-width: 480px) {
+  .side-gold-coin-rain {
+    display: none;
+  }
+}

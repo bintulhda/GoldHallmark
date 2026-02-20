@@ -129,3 +129,43 @@
     transform: rotate(360deg);
   }
 }
+
+/* ============================================
+   TOAST NOTIFICATIONS
+   ============================================ */
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  background: rgba(17, 24, 39, 0.9);
+  color: #fff;
+  box-shadow: var(--glass-shadow-lg), var(--glow-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  z-index: 50;
+  animation: fadeIn var(--transition-base);
+}
+
+.toast-success {
+  border: 1px solid var(--color-success);
+}
+
+.toast-error {
+  border: 1px solid var(--color-danger);
+}
+
+.toast-info {
+  border: 1px solid var(--color-gold-main);
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+}

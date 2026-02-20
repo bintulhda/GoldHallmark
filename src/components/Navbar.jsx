@@ -36,7 +36,7 @@ function Navbar() {
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="navbar-logo" onClick={handleMenuClose}>
-          🏆 Gold Guardian
+          🛡️ Gold Guardian
         </Link>
 
         {/* Mobile Menu Toggle Button */}
