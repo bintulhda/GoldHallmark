@@ -1,0 +1,322 @@
+/* Language Panel - Right Side Slide-in */
+.language-panel-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.language-panel {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 380px;
+  height: 100vh;
+  background: rgba(20, 20, 30, 0.95);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(217, 169, 69, 0.3);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(217, 169, 69, 0.05);
+  z-index: 1001;
+  overflow-y: auto;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.language-panel.open {
+  right: 0;
+}
+
+/* Close Button */
+.language-panel-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(217, 169, 69, 0.3);
+  background: rgba(217, 169, 69, 0.08);
+  color: rgba(217, 169, 69, 0.8);
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+
+.language-panel-close:hover {
+  background: rgba(217, 169, 69, 0.15);
+  border-color: rgba(217, 169, 69, 0.5);
+  color: rgba(217, 169, 69, 1);
+  box-shadow: 0 0 15px rgba(217, 169, 69, 0.2);
+}
+
+/* Panel Header */
+.language-panel-header {
+  padding: 40px 30px 20px;
+  border-bottom: 1px solid rgba(217, 169, 69, 0.1);
+}
+
+.language-panel-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #fff 0%, rgba(217, 169, 69, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.language-panel-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+/* Language Options */
+.language-options {
+  flex: 1;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(217, 169, 69, 0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  text-align: left;
+  position: relative;
+}
+
+.language-option:hover {
+  background: rgba(217, 169, 69, 0.08);
+  border-color: rgba(217, 169, 69, 0.4);
+  transform: translateX(-4px);
+  box-shadow: 0 4px 12px rgba(217, 169, 69, 0.1);
+}
+
+.language-option.active {
+  background: linear-gradient(135deg, rgba(217, 169, 69, 0.2) 0%, rgba(217, 169, 69, 0.1) 100%);
+  border-color: rgba(217, 169, 69, 0.6);
+  box-shadow: 0 0 20px rgba(217, 169, 69, 0.2), inset 0 0 10px rgba(217, 169, 69, 0.1);
+}
+
+.language-option.active .language-names {
+  color: rgba(217, 169, 69, 1);
+}
+
+/* Language Emoji */
+.language-emoji {
+  font-size: 28px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(217, 169, 69, 0.08);
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.language-option:hover .language-emoji {
+  background: rgba(217, 169, 69, 0.15);
+  transform: scale(1.1);
+}
+
+.language-option.active .language-emoji {
+  background: rgba(217, 169, 69, 0.25);
+  box-shadow: 0 0 12px rgba(217, 169, 69, 0.3);
+}
+
+/* Language Names Container */
+.language-names {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: color 0.25s ease;
+}
+
+.language-name {
+  font-weight: 500;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.3px;
+}
+
+.language-english {
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Checkmark */
+.language-checkmark {
+  font-size: 18px;
+  color: rgba(217, 169, 69, 0.8);
+  font-weight: 600;
+  flex-shrink: 0;
+  animation: checkmarkSlide 0.3s ease;
+}
+
+@keyframes checkmarkSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Panel Footer */
+.language-panel-footer {
+  padding: 20px 30px 30px;
+  border-top: 1px solid rgba(217, 169, 69, 0.1);
+  background: linear-gradient(to top, rgba(20, 20, 30, 0.8), transparent);
+}
+
+.language-panel-hint {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Scrollbar Styling */
+.language-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.language-options::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.language-options::-webkit-scrollbar-thumb {
+  background: rgba(217, 169, 69, 0.3);
+  border-radius: 3px;
+}
+
+.language-options::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 169, 69, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .language-panel {
+    width: 100%;
+    right: -100%;
+  }
+
+  .language-panel-header {
+    padding: 30px 24px 16px;
+  }
+
+  .language-panel-header h2 {
+    font-size: 24px;
+  }
+
+  .language-option {
+    padding: 14px 18px;
+    gap: 14px;
+  }
+
+  .language-emoji {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+  }
+
+  .language-names {
+    gap: 2px;
+  }
+
+  .language-name {
+    font-size: 14px;
+  }
+
+  .language-english {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-panel {
+    width: 100%;
+  }
+
+  .language-panel-header {
+    padding: 24px 20px 14px;
+  }
+
+  .language-panel-header h2 {
+    font-size: 20px;
+  }
+
+  .language-panel-close {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .language-options {
+    padding: 16px 12px;
+    gap: 8px;
+  }
+
+  .language-option {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .language-emoji {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+
+  .language-checkmark {
+    font-size: 16px;
+  }
+
+  .language-panel-footer {
+    padding: 16px 20px 20px;
+  }
+
+  .language-panel-hint {
+    font-size: 11px;
+  }
+}

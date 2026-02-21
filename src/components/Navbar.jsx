@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../contexts/AuthContext'
+import LanguagePanel from './LanguagePanel'
 import '../styles/navbar.css'
 
 /**
@@ -10,7 +12,9 @@ import '../styles/navbar.css'
  */
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLanguagePanelOpen, setIsLanguagePanelOpen] = useState(false)
   const { user, logout, isAuthenticated } = useAuth()
+  const { t } = useTranslation('common')
   const navigate = useNavigate()
 
   const handleMenuToggle = () => {
@@ -34,26 +38,16 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* Logo */}
+        {/* Left: Logo */}
         <Link to="/" className="navbar-logo" onClick={handleMenuClose}>
           🛡️ Gold Guardian
         </Link>
 
-        {/* Mobile Menu Toggle Button */}
-        <div
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-          onClick={handleMenuToggle}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        {/* Navigation Menu */}
+        {/* Center: Navigation Menu */}
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <li>
             <Link to="/" onClick={handleMenuClose}>
-              Home
+              {t('navbar.home')}
             </Link>
           </li>
 
@@ -61,61 +55,81 @@ function Navbar() {
             <>
               <li>
                 <Link to="/calculator" onClick={handleMenuClose}>
-                  Calculator
+                  {t('navbar.calculator')}
                 </Link>
               </li>
               <li>
                 <Link to="/verify-huid" onClick={handleMenuClose}>
-                  Verify HUID
+                  {t('navbar.verifyHuid')}
                 </Link>
               </li>
               <li>
                 <Link to="/learn" onClick={handleMenuClose}>
-                  Learn
+                  {t('navbar.learn')}
                 </Link>
               </li>
               <li>
                 <Link to="/complaint" onClick={handleMenuClose}>
-                  Complaint
-                </Link>
-              </li>
-            </>
-          )}
-
-          <li className="navbar-divider"></li>
-
-          {isAuthenticated ? (
-            <>
-              <li className="navbar-user">
-                <span className="user-email">{user?.displayName || user?.email}</span>
-              </li>
-              <li>
-                <Link to="/profile" className="navbar-profile" onClick={handleMenuClose}>
-                  👤 Profile
-                </Link>
-              </li>
-              <li>
-                <button onClick={handleLogout} className="navbar-logout">
-                  Logout
-                </button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <Link to="/login" className="navbar-auth" onClick={handleMenuClose}>
-                  Sign In
-                </Link>
-              </li>
-              <li>
-                <Link to="/signup" className="navbar-auth navbar-auth-primary" onClick={handleMenuClose}>
-                  Sign Up
+                  {t('navbar.complaint')}
                 </Link>
               </li>
             </>
           )}
         </ul>
+
+        {/* Right: Language Globe Icon + Auth Controls */}
+        <div className="navbar-right">
+          {/* Language Selector Globe Icon */}
+          <button
+            className="navbar-language-btn"
+            onClick={() => setIsLanguagePanelOpen(true)}
+            title="Change language"
+            aria-label="Open language selector"
+          >
+            🌐
+          </button>
+
+          {/* Mobile Menu Toggle */}
+          <div
+            className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+            onClick={handleMenuToggle}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          {/* Auth & Profile Section */}
+          <div className="navbar-auth-section">
+            {isAuthenticated ? (
+              <>
+                <Link to="/profile" className="navbar-profile-link" onClick={handleMenuClose}>
+                  👤
+                  <span>{user?.displayName || user?.email?.split('@')[0]}</span>
+                </Link>
+                <button onClick={handleLogout} className="navbar-logout-btn">
+                  {t('navbar.logout')}
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="navbar-auth-link" onClick={handleMenuClose}>
+                  {t('navbar.login')}
+                </Link>
+                <Link to="/signup" className="navbar-auth-link navbar-auth-primary" onClick={handleMenuClose}>
+                  {t('navbar.signup')}
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
       </div>
+
+      {/* Language Panel Slide-in */}
+      <LanguagePanel
+        isOpen={isLanguagePanelOpen}
+        onClose={() => setIsLanguagePanelOpen(false)}
+      />
     </nav>
   )
 }

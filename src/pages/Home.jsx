@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import '../styles/home.css'
 import Hero from '../components/Hero'
 import Toast from '../components/Toast'
@@ -14,6 +15,7 @@ import {
  * Landing page with hero section and feature cards
  */
 function Home() {
+  const { t } = useTranslation('common')
   const [scrolled, setScrolled] = useState(false)
   const [quickHuid, setQuickHuid] = useState('')
   const [quickResult, setQuickResult] = useState(null)
@@ -103,34 +105,32 @@ function Home() {
         <div className="whatsapp-grid">
           <div className="whatsapp-intro glass-card">
             <span className="badge">Phase 1</span>
-            <h2>WhatsApp Bot – Verify Gold in Chat</h2>
+            <h2>{t('whatsapp.title')}</h2>
             <p className="whatsapp-subtitle">
-              No app. No login. Just send a message on WhatsApp to verify HUID,
-              get live gold prices, and receive fraud alerts.
+              {t('whatsapp.subtitle')}
             </p>
 
             <ul className="whatsapp-benefits">
-              <li>💬 Easy verification via WhatsApp chat</li>
-              <li>⚡ Instant HUID checks using BIS-style data</li>
-              <li>📈 Gold price alerts directly on your phone</li>
+              <li>💬 {t('whatsapp.benefit1')}</li>
+              <li>⚡ {t('whatsapp.benefit2')}</li>
+              <li>📈 {t('whatsapp.benefit3')}</li>
             </ul>
 
             <a href={whatsappLink} target="_blank" rel="noreferrer" className="btn btn-whatsapp">
-              Verify on WhatsApp
+              {t('whatsapp.button')}
             </a>
 
             <p className="whatsapp-helper">
-              Send <code>HELP</code>, <code>PRICE</code>, <code>VERIFY AB1234</code> or{' '}
-              <code>ALERT ON</code> to get started.
+              {t('whatsapp.helper')}
             </p>
           </div>
 
           <div className="whatsapp-actions glass-card">
-            <h3>Try it from the website</h3>
+            <h3>{t('whatsapp.tryWebsite')}</h3>
 
             {/* Quick HUID verification */}
             <form className="quick-verify-form" onSubmit={handleQuickVerify}>
-              <label htmlFor="quickHuid">Quick HUID Check</label>
+              <label htmlFor="quickHuid">{t('whatsapp.quickCheck')}</label>
               <div className="quick-verify-input-group">
                 <input
                   id="quickHuid"
@@ -145,7 +145,7 @@ function Home() {
                   className="btn btn-small"
                   disabled={quickLoading || !quickHuid}
                 >
-                  {quickLoading ? 'Checking…' : 'Verify'}
+                  {quickLoading ? t('whatsapp.checking') : t('whatsapp.verify')}
                 </button>
               </div>
               {quickResult && (
@@ -165,14 +165,14 @@ function Home() {
 
             {/* Alerts toggle */}
             <div className="alerts-card">
-              <h4>Gold Price Alerts on WhatsApp</h4>
+              <h4>{t('whatsapp.alertsTitle')}</h4>
               <p className="alerts-caption">
-                Get notified when gold prices move – perfect for planning your purchase.
+                {t('whatsapp.alertsCaption')}
               </p>
               <div className="alerts-controls">
                 <input
                   type="tel"
-                  placeholder="WhatsApp number with country code"
+                  placeholder={t('whatsapp.alertsPlaceholder')}
                   value={alertPhone}
                   onChange={(e) => setAlertPhone(e.target.value)}
                 />
@@ -183,7 +183,7 @@ function Home() {
                 >
                   <span className="toggle-knob" />
                   <span className="toggle-label">
-                    {alertsEnabled ? 'Alerts On' : 'Alerts Off'}
+                    {alertsEnabled ? t('whatsapp.alertsOn') : t('whatsapp.alertsOff')}
                   </span>
                 </button>
               </div>
@@ -194,58 +194,54 @@ function Home() {
 
       {/* Features Grid */}
       <section className="features">
-        <h2>Key Features</h2>
+        <h2>{t('features.title')}</h2>
 
         <div className="features-grid">
           {/* Feature 1 */}
           <div className="feature-card">
             <div className="feature-icon">🧮</div>
-            <h3>Gold Price Calculator</h3>
+            <h3>{t('features.calculator.title')}</h3>
             <p>
-              Calculate fair jewellery prices with live gold rates. Detect
-              overpricing instantly.
+              {t('features.calculator.description')}
             </p>
             <a href="/calculator" className="feature-link">
-              Calculate now →
+              {t('features.calculator.link')} →
             </a>
           </div>
 
           {/* Feature 2 */}
           <div className="feature-card">
             <div className="feature-icon">🔍</div>
-            <h3>HUID Verification</h3>
+            <h3>{t('features.verification.title')}</h3>
             <p>
-              Verify BIS Hallmark codes (HUID) to ensure authentic jewellery.
-              Detect fakes.
+              {t('features.verification.description')}
             </p>
             <a href="/verify-huid" className="feature-link">
-              Verify now →
+              {t('features.verification.link')} →
             </a>
           </div>
 
           {/* Feature 3 */}
           <div className="feature-card">
             <div className="feature-icon">📚</div>
-            <h3>Hallmark Education</h3>
+            <h3>{t('features.education.title')}</h3>
             <p>
-              Learn about official BIS hallmarks, purity marks, and how to spot
-              fake jewellery.
+              {t('features.education.description')}
             </p>
             <a href="/learn" className="feature-link">
-              Learn more →
+              {t('features.education.link')} →
             </a>
           </div>
 
           {/* Feature 4 */}
           <div className="feature-card">
             <div className="feature-icon">📝</div>
-            <h3>Complaint Generator</h3>
+            <h3>{t('features.complaint.title')}</h3>
             <p>
-              Generate formal complaint letters to submit to BIS. Structured
-              and official format.
+              {t('features.complaint.description')}
             </p>
             <a href="/complaint" className="feature-link">
-              Generate complaint →
+              {t('features.complaint.link')} →
             </a>
           </div>
         </div>
@@ -253,37 +249,37 @@ function Home() {
 
       {/* How It Works */}
       <section className="how-it-works">
-        <h2>How Gold Guardian Works</h2>
+        <h2>{t('howItWorks.title')}</h2>
 
         <div className="steps">
           <div className="step">
             <div className="step-number">1</div>
-            <h3>Enter Details</h3>
-            <p>Provide jewellery weight, purity, shop name, and location</p>
+            <h3>{t('howItWorks.step1.title')}</h3>
+            <p>{t('howItWorks.step1.description')}</p>
           </div>
 
           <div className="arrow">→</div>
 
           <div className="step">
             <div className="step-number">2</div>
-            <h3>Fetch Live Rates</h3>
-            <p>Real gold rates are fetched from authorized APIs</p>
+            <h3>{t('howItWorks.step2.title')}</h3>
+            <p>{t('howItWorks.step2.description')}</p>
           </div>
 
           <div className="arrow">→</div>
 
           <div className="step">
             <div className="step-number">3</div>
-            <h3>Calculate & Verify</h3>
-            <p>Fair price is calculated and compared with quoted price</p>
+            <h3>{t('howItWorks.step3.title')}</h3>
+            <p>{t('howItWorks.step3.description')}</p>
           </div>
 
           <div className="arrow">→</div>
 
           <div className="step">
             <div className="step-number">4</div>
-            <h3>Get Decision</h3>
-            <p>Instant fraud alert: SAFE BUY, SUSPICIOUS, or DO NOT BUY</p>
+            <h3>{t('howItWorks.step4.title')}</h3>
+            <p>{t('howItWorks.step4.description')}</p>
           </div>
         </div>
       </section>

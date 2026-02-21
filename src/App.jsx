@@ -1,6 +1,6 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import { AuthProvider } from './contexts/AuthContext'
+import React, { useEffect } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { PrivateRoute } from './contexts/PrivateRoute'
 import Navbar from './components/Navbar'
 import GoldCinematicBackground from './components/GoldCinematicBackground'
@@ -23,27 +23,32 @@ import './styles/global.css'
  * and layout. Protected pages require user authentication.
  */
 function App() {
+  const { i18n } = useTranslation()
+
+  // Update HTML lang attribute when language changes
+  useEffect(() => {
+    document.documentElement.lang = i18n.language
+  }, [i18n.language])
+
   return (
-    <Router>
-      <AuthProvider>
-        <div className="app-container">
-          {/* Falling gold coins - background layer */}
-          <GoldCoinRain />
-          {/* Side gold coin waterfall - right strip only, behind content */}
-          <SideGoldCoinRain />
-          {/* Cinematic Gold Background with Parallax */}
-          <GoldCinematicBackground />
+    <div className="app-container">
+      {/* Falling gold coins - background layer */}
+      <GoldCoinRain />
+      {/* Side gold coin waterfall - right strip only, behind content */}
+      <SideGoldCoinRain />
+      {/* Cinematic Gold Background with Parallax */}
+      <GoldCinematicBackground />
 
-          {/* Navigation Bar - persistent across all pages */}
-          <Navbar />
+      {/* Navigation Bar - persistent across all pages */}
+      <Navbar />
 
-          {/* Main Content Routes */}
-          <main className="main-content">
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
+      {/* Main Content Routes */}
+      <main className="main-content">
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
               {/* Protected Routes - require authentication */}
               <Route
@@ -87,13 +92,11 @@ function App() {
                 }
               />
 
-              {/* Catch-all redirect */}
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </main>
-        </div>
-      </AuthProvider>
-    </Router>
+          {/* Catch-all redirect */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
 

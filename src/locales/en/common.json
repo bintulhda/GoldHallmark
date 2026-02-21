@@ -1,0 +1,182 @@
+{
+  "language": "English",
+  "navbar": {
+    "home": "Home",
+    "calculator": "Calculator",
+    "verifyHuid": "Verify HUID",
+    "learn": "Learn",
+    "complaint": "Complaint",
+    "profile": "Profile",
+    "logout": "Logout",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "hero": {
+    "title": "Gold Guardian",
+    "subtitle": "Protect Your Gold Investment",
+    "description": "Verify authentic hallmarks, calculate fair gold prices, and fight jewelry fraud in India"
+  },
+  "whatsapp": {
+    "phase1": "Phase 1",
+    "title": "WhatsApp Bot – Verify Gold in Chat",
+    "subtitle": "No app. No login. Just send a message on WhatsApp to verify HUID, get live gold prices, and receive fraud alerts.",
+    "benefit1": "Easy verification via WhatsApp chat",
+    "benefit2": "Instant HUID checks using BIS-style data",
+    "benefit3": "Gold price alerts directly on your phone",
+    "button": "Verify on WhatsApp",
+    "helper": "Send HELP, PRICE, VERIFY AB1234 or ALERT ON to get started.",
+    "tryWebsite": "Try it from the website",
+    "quickCheck": "Quick HUID Check",
+    "verify": "Verify",
+    "checking": "Checking…",
+    "alertsTitle": "Gold Price Alerts on WhatsApp",
+    "alertsCaption": "Get notified when gold prices move – perfect for planning your purchase.",
+    "alertsPlaceholder": "WhatsApp number with country code",
+    "alertsOn": "Alerts On",
+    "alertsOff": "Alerts Off"
+  },
+  "features": {
+    "title": "Key Features",
+    "calculator": {
+      "title": "Gold Price Calculator",
+      "description": "Calculate fair jewellery prices with live gold rates. Detect overpricing instantly.",
+      "link": "Calculate now"
+    },
+    "verification": {
+      "title": "HUID Verification",
+      "description": "Verify BIS Hallmark codes (HUID) to ensure authentic jewellery. Detect fakes.",
+      "link": "Verify now"
+    },
+    "education": {
+      "title": "Hallmark Education",
+      "description": "Learn about official BIS hallmarks, purity marks, and how to spot fake jewellery.",
+      "link": "Learn more"
+    },
+    "complaint": {
+      "title": "Complaint Generator",
+      "description": "Generate formal complaint letters to submit to BIS. Structured and official format.",
+      "link": "Generate complaint"
+    }
+  },
+  "howItWorks": {
+    "title": "How Gold Guardian Works",
+    "step1": {
+      "title": "Enter Details",
+      "description": "Provide jewellery weight, purity, shop name, and location"
+    },
+    "step2": {
+      "title": "Fetch Live Rates",
+      "description": "Real gold rates are fetched from authorized APIs"
+    },
+    "step3": {
+      "title": "Calculate & Verify",
+      "description": "Fair price is calculated and compared with quoted price"
+    },
+    "step4": {
+      "title": "Get Decision",
+      "description": "Instant fraud alert: SAFE BUY, SUSPICIOUS, or DO NOT BUY"
+    }
+  },
+  "stats": {
+    "title": "Gold Guardian Impact",
+    "complaints": "Complaints Processed",
+    "fraudPrevented": "Fraud Prevented",
+    "states": "States Covered",
+    "satisfaction": "User Satisfaction"
+  },
+  "cta": {
+    "title": "Protect Your Gold Investment Today",
+    "subtitle": "Join thousands of Indian consumers using Gold Guardian",
+    "button": "Start Protecting Now →"
+  },
+  "calculator": {
+    "title": "🧮 Gold Price Calculator",
+    "subtitle": "Calculate fair jewellery prices with live gold rates",
+    "weight": "Gold Weight (grams)",
+    "purity": "Purity",
+    "shopName": "Shop Name",
+    "city": "City",
+    "quotedPrice": "Quoted Price (₹)",
+    "calculate": "Calculate Fair Price",
+    "calculating": "Calculating…",
+    "result": "Price Calculation Result",
+    "fairPrice": "Fair Price (₹)",
+    "quotedAmount": "Quoted Amount (₹)",
+    "difference": "Difference (₹)",
+    "verdict": "Verdict",
+    "safeBuy": "✅ SAFE BUY",
+    "suspicious": "⚠️ SUSPICIOUS",
+    "doNotBuy": "❌ DO NOT BUY"
+  },
+  "verify": {
+    "title": "🔍 Verify BIS Hallmark",
+    "subtitle": "Enter HUID code to verify authentic BIS hallmarks",
+    "huidLabel": "HUID Code",
+    "huidPlaceholder": "E.g., AB1234, XY5678",
+    "huidHelper": "HUID is an 8-character code found on BIS hallmark label",
+    "verifyButton": "✓ Verify HUID",
+    "verifying": "⏳ Verifying...",
+    "recentSearches": "Recent Searches",
+    "info": "What is HUID?",
+    "valid": "✅ This hallmark is registered with BIS. The jewellery is authentic.",
+    "invalid": "❌ This HUID code is not registered or invalid. Be cautious of this jewellery.",
+    "advice": "What to do: Do not purchase jewellery without proper BIS hallmark. Report to nearest BIS office.",
+    "shop": "Certified Shop",
+    "location": "Location",
+    "purity": "Gold Purity",
+    "status": "Certification Status"
+  },
+  "complaint": {
+    "title": "📝 Generate BIS Complaint",
+    "subtitle": "Create a formal complaint letter against fraudulent gold jewellery",
+    "yourName": "Your Full Name",
+    "shopName": "Shop Name",
+    "city": "City",
+    "description": "Describe the Issue",
+    "generateBtn": "Generate Complaint Letter",
+    "generating": "Generating…",
+    "copy": "📋 Copy to Clipboard",
+    "download": "⬇️ Download as Text",
+    "copied": "Copied!",
+    "about": "About This Complaint"
+  },
+  "profile": {
+    "title": "My Profile",
+    "accountInfo": "Account Information",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "created": "Account Created",
+    "userId": "User ID",
+    "verified": "Email Verified",
+    "actions": "Account Actions",
+    "editProfile": "Edit Profile",
+    "logout": "Logout",
+    "loggingOut": "Logging out...",
+    "notSet": "Not set",
+    "save": "Save Changes",
+    "saving": "Saving...",
+    "cancel": "Cancel"
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "email": "Email Address",
+    "password": "Password",
+    "name": "Full Name",
+    "confirmPassword": "Confirm Password",
+    "alreadyHaveAccount": "Already have an account? Login",
+    "noAccount": "Don't have an account? Sign up",
+    "loginBtn": "Login",
+    "signupBtn": "Sign Up",
+    "loggingIn": "Logging in...",
+    "signingUp": "Signing up...",
+    "error": "Error"
+  },
+  "errors": {
+    "emptyField": "Please fill in all fields",
+    "invalidEmail": "Invalid email address",
+    "shortPassword": "Password must be at least 6 characters",
+    "passwordMismatch": "Passwords do not match",
+    "tryAgain": "Please try again"
+  }
+}
