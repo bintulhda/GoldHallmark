@@ -107,6 +107,22 @@
   background-position: right var(--spacing-md) center;
   background-size: 1.25rem;
   padding-right: 2.5rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.form-select option {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  padding: 8px;
+  border: none;
+  font-size: 14px;
+}
+
+.form-select option:checked {
+  background: linear-gradient(135deg, #D9A945, #BF8B1D) !important;
+  color: #0f0f12 !important;
+  font-weight: 600;
 }
 
 .input-range {

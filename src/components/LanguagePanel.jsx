@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import '../styles/languagePanel.css'
 
 const LANGUAGES = [
-  { code: 'en', name: 'English', emoji: '🌐', nativeName: 'English' },
+  { code: 'en', name: 'English', emoji: '�🇧', nativeName: 'English' },
   { code: 'hi', name: 'हिंदी', emoji: '🇮🇳', nativeName: 'हिंदी' },
   { code: 'ta', name: 'தமிழ்', emoji: '🌴', nativeName: 'தமிழ்' },
   { code: 'mr', name: 'मराठी', emoji: '🏛️', nativeName: 'मराठी' },

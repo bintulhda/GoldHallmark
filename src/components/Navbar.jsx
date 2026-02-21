@@ -86,7 +86,7 @@ function Navbar() {
             title="Change language"
             aria-label="Open language selector"
           >
-            🌐
+            🇮🇳
           </button>
 
           {/* Mobile Menu Toggle */}
